@@ -27,6 +27,7 @@ class FincraFlutter {
     required String email,
     required String merchantID,
     required String resellerID,
+    required String orderID,
 
     ///metadata
     required Map metadata,
@@ -62,6 +63,7 @@ class FincraFlutter {
                 amount: amount,
                 currency: currency,
                 email: email,
+                orderID: orderID,
                 feeBearer: feeBearer,
                 onSuccess: (data) {
                   onSuccess(data);

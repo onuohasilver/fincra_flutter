@@ -21,7 +21,7 @@ class FincraWebview extends StatefulWidget {
   final String feeBearer;
   final Function onClose;
   final String merchantID;
-  final String resellerID;
+  final String resellerID,orderID;
   final Function(dynamic payload) onSuccess;
   final Function(dynamic payload) onError;
 
@@ -38,7 +38,9 @@ class FincraWebview extends StatefulWidget {
       required this.phoneNumber,
       required this.feeBearer,
       required this.merchantID,
-      required this.resellerID})
+      required this.resellerID,
+      required this.orderID
+      })
       : super(key: key);
 
   @override
@@ -77,7 +79,9 @@ class _FincraWebviewState extends State<FincraWebview> {
                   widget.phoneNumber,
                   widget.currency,
                   widget.merchantID,
-                  widget.resellerID),
+                  widget.resellerID,
+                  widget.orderID
+                  ),
               mimeType: "text/html",
             ).toString(),
             javascriptChannels: _fincraJavascriptChannel,
