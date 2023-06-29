@@ -20,24 +20,26 @@ class FincraWebview extends StatefulWidget {
   final String currency;
   final String feeBearer;
   final Function onClose;
-  final Map metadata;
+  final String merchantID;
+  final String resellerID;
   final Function(dynamic payload) onSuccess;
   final Function(dynamic payload) onError;
 
-  const FincraWebview({
-    Key? key,
-    required this.publicKey,
-    required this.amount,
-    required this.email,
-    required this.currency,
-    required this.onClose,
-    required this.onSuccess,
-    required this.onError,
-    required this.name,
-    required this.phoneNumber,
-    required this.feeBearer,
-    required this.metadata,
-  }) : super(key: key);
+  const FincraWebview(
+      {Key? key,
+      required this.publicKey,
+      required this.amount,
+      required this.email,
+      required this.currency,
+      required this.onClose,
+      required this.onSuccess,
+      required this.onError,
+      required this.name,
+      required this.phoneNumber,
+      required this.feeBearer,
+      required this.merchantID,
+      required this.resellerID})
+      : super(key: key);
 
   @override
 // ignore: library_private_types_in_public_api
@@ -74,7 +76,8 @@ class _FincraWebviewState extends State<FincraWebview> {
                   widget.feeBearer,
                   widget.phoneNumber,
                   widget.currency,
-                  widget.metadata),
+                  widget.merchantID,
+                  widget.resellerID),
               mimeType: "text/html",
             ).toString(),
             javascriptChannels: _fincraJavascriptChannel,

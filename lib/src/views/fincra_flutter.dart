@@ -25,6 +25,8 @@ class FincraFlutter {
 
     /// email
     required String email,
+    required String merchantID,
+    required String resellerID,
 
     ///metadata
     required Map metadata,
@@ -50,10 +52,11 @@ class FincraFlutter {
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width * .9,
-              height: MediaQuery.of(context).size.height * .9,
+              height: MediaQuery.of(context).size.height * .8,
               child: FincraWebview(
                 name: name,
-                metadata: metadata,
+                resellerID: resellerID,
+                merchantID: merchantID,
                 phoneNumber: phoneNumber,
                 publicKey: publicKey,
                 amount: amount,

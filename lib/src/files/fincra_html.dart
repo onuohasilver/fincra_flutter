@@ -1,4 +1,4 @@
-import 'package:js/js_util.dart' as js;
+
 
 String buildFincraHtml(
         String name,
@@ -8,7 +8,8 @@ String buildFincraHtml(
         String feeBearer,
         String phoneNumber,
         String currency,
-        Map metaData) =>
+        String merchantID,
+        String resellerID) =>
     '''
 <html>
   <head>
@@ -44,8 +45,10 @@ String buildFincraHtml(
                 email: "$email",
                 phoneNumber: "$phoneNumber",
             },
-            customerReference: "123123+123123",
-            metadata: $mapToJSObj(metaData),
+            metadata: {
+              merchantID:"$merchantID",
+              resellerID:"$resellerID"
+            },
             onClose: function () {
               sendMessage({"event": "checkout.closed"});
             },
@@ -64,13 +67,3 @@ String buildFincraHtml(
 </html>
 
 ''';
-
-Object mapToJSObj(Map<dynamic, dynamic> a) {
-  var object = js.newObject();
-  a.forEach((k, v) {
-    var key = k;
-    var value = v;
-    js.setProperty(object, key, value);
-  });
-  return object;
-}
