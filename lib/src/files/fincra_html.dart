@@ -43,6 +43,7 @@ String buildFincraHtml(
                 phoneNumber: "$phoneNumber",
             },
             customerReference: "123123+123123",
+            metadata: { reference: "my_reference", userId: "my_user_id" },
             onClose: function () {
               sendMessage({"event": "checkout.closed"});
             },
