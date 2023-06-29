@@ -20,6 +20,7 @@ class FincraWebview extends StatefulWidget {
   final String currency;
   final String feeBearer;
   final Function onClose;
+  final Map metadata;
   final Function(dynamic payload) onSuccess;
   final Function(dynamic payload) onError;
 
@@ -35,9 +36,11 @@ class FincraWebview extends StatefulWidget {
     required this.name,
     required this.phoneNumber,
     required this.feeBearer,
+    required this.metadata,
   }) : super(key: key);
 
   @override
+// ignore: library_private_types_in_public_api
   _FincraWebviewState createState() => _FincraWebviewState();
 }
 
@@ -64,14 +67,14 @@ class _FincraWebviewState extends State<FincraWebview> {
           child: WebView(
             initialUrl: Uri.dataFromString(
               buildFincraHtml(
-                widget.name,
-                widget.amount,
-                widget.email,
-                widget.publicKey,
-                widget.feeBearer,
-                widget.phoneNumber,
-                widget.currency,
-              ),
+                  widget.name,
+                  widget.amount,
+                  widget.email,
+                  widget.publicKey,
+                  widget.feeBearer,
+                  widget.phoneNumber,
+                  widget.currency,
+                  widget.metadata),
               mimeType: "text/html",
             ).toString(),
             javascriptChannels: _fincraJavascriptChannel,

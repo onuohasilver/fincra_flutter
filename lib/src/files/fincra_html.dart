@@ -1,12 +1,12 @@
 String buildFincraHtml(
-  String name,
-  String amount,
-  String email,
-  String publicKey,
-  String feeBearer,
-  String phoneNumber,
-  String currency,
-) =>
+        String name,
+        String amount,
+        String email,
+        String publicKey,
+        String feeBearer,
+        String phoneNumber,
+        String currency,
+        Map metaData) =>
     '''
 <html>
   <head>
@@ -43,7 +43,7 @@ String buildFincraHtml(
                 phoneNumber: "$phoneNumber",
             },
             customerReference: "123123+123123",
-            metadata: { reference: "my_reference", userId: "my_user_id" },
+            metadata: $metaData,
             onClose: function () {
               sendMessage({"event": "checkout.closed"});
             },

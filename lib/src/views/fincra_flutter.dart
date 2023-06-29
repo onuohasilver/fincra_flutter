@@ -5,7 +5,6 @@ import 'fincra.dart';
 class FincraFlutter {
   static Future launchFincra(
     BuildContext _, {
-
     /// Public Key from your https://app.fincra.com/settings/api
     required String publicKey,
 
@@ -26,6 +25,9 @@ class FincraFlutter {
 
     /// email
     required String email,
+
+    ///metadata
+    required Map metadata,
 
     /// Success callback
     required void Function(dynamic code) onSuccess,
@@ -51,6 +53,7 @@ class FincraFlutter {
               height: MediaQuery.of(context).size.height * .9,
               child: FincraWebview(
                 name: name,
+                metadata: metadata,
                 phoneNumber: phoneNumber,
                 publicKey: publicKey,
                 amount: amount,
