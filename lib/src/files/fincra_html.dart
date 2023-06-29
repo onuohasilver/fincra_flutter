@@ -42,6 +42,7 @@ String buildFincraHtml(
                 email: "$email",
                 phoneNumber: "$phoneNumber",
             },
+            customerReference: "123123+123123",
             onClose: function () {
               sendMessage({"event": "checkout.closed"});
             },
