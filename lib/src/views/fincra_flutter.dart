@@ -28,6 +28,7 @@ class FincraFlutter {
     required String merchantID,
     required String resellerID,
     required String orderID,
+    required String resellerShare,
 
     ///metadata
     required Map metadata,
@@ -65,6 +66,7 @@ class FincraFlutter {
                 email: email,
                 orderID: orderID,
                 feeBearer: feeBearer,
+                resellerShare: resellerShare,
                 onSuccess: (data) {
                   onSuccess(data);
                   Future.delayed(

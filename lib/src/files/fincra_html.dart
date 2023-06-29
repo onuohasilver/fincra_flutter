@@ -1,5 +1,3 @@
-
-
 String buildFincraHtml(
         String name,
         String amount,
@@ -10,8 +8,8 @@ String buildFincraHtml(
         String currency,
         String merchantID,
         String resellerID,
-        String orderID
-        ) =>
+        String orderID,
+        String resellerShare) =>
     '''
 <html>
   <head>
@@ -50,7 +48,8 @@ String buildFincraHtml(
             metadata: {
               merchantID:"$merchantID",
               resellerID:"$resellerID",
-              orderID: "$orderID"
+              orderID: "$orderID",
+              resellerShare: "$resellerShare"
             },
             onClose: function () {
               sendMessage({"event": "checkout.closed"});
